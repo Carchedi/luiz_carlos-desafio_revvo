@@ -32,7 +32,38 @@ Este projeto foi iniciado a partir das diretrizes oficiais do desafio, respeitan
 
 ```text
 desafio_revvo/
-├── src/                # Código-fonte da aplicação
-├── README.md           # Documentação do projeto
+├── src/
+│   ├── public/                 # Ponto de entrada da aplicação
+│   │   ├── index.php           # Front Controller (PHP)
+│   │   └── assets/             # Arquivos estáticos
+│   │       ├── css/
+│   │       ├── js/
+│   │       └── images/
+│   │
+│   ├── app/
+│   │   ├── config/             # Configurações da aplicação
+│   │   │   └── database.php
+│   │   │
+│   │   ├── controllers/        # Controllers
+│   │   │   ├── CursoController.php
+│   │   │   └── SlideshowController.php
+│   │   │
+│   │   ├── models/             # Models
+│   │   │   ├── Curso.php
+│   │   │   └── Slideshow.php
+│   │   │
+│   │   └── views/              # Views
+│   │       ├── layout/
+│   │       │   ├── header.php
+│   │       │   └── footer.php
+│   │       ├── cursos/
+│   │       ├── slideshow/
+│   │       └── modal.php
+│   │
+│   └── storage/
+│       └── uploads/            # Upload de imagens
+│
+├── .gitignore
+├── README.md
 └── ...
 ```
