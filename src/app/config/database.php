@@ -1,12 +1,19 @@
 <?php
 
-$envPath = __DIR__ . '/../../../.env';
+$envPath = dirname(__DIR__, 3) . '/.env';
 
 if (!file_exists($envPath)) {
     die('.env não encontrado');
 }
 
-$env = parse_ini_file($envPath);
+$env = [];
+$lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+foreach ($lines as $line) {
+    if (strpos(trim($line), '#') === 0 || strpos($line, '=') === false) continue;
+    
+    list($key, $value) = explode('=', $line, 2);
+    $env[trim($key)] = trim(trim($value), "\"'");
+}
 
 $host = $env['DB_HOST'];
 $port = $env['DB_PORT'];
