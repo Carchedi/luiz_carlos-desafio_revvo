@@ -28,7 +28,7 @@ Este projeto foi iniciado a partir das diretrizes oficiais do desafio, respeitan
 
 ---
 
-## 📂 Estrutura do Projeto
+## � Estrutura do Projeto
 
 ```text
 desafio_revvo/

@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__ . '/../app/config/database.php';
-
+require_once __DIR__ . '/../app/config/database.php'; 
+ 
 // Captura a rota atual
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = rtrim($uri, '/') ?: '/';

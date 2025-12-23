@@ -1,5 +1,3 @@
-<h1>Home</h1>
-
 <section>
     <h2>Slideshow</h2>
     <!-- slides virão do banco -->
