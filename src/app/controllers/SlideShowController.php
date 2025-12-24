@@ -17,7 +17,7 @@ class SlideshowController
         $slides = $this->model->findAll();
 
         include __DIR__ . '/../views/layout/header.php';
-        include __DIR__ . '/../views/slides/index.php';
+        include __DIR__ . '/../views/slideshow/index.php';
         include __DIR__ . '/../views/layout/footer.php';
     }
 
@@ -25,7 +25,7 @@ class SlideshowController
     public function create(): void
     {
         include __DIR__ . '/../views/layout/header.php';
-        include __DIR__ . '/../views/slides/form.php';
+        include __DIR__ . '/../views/slideshow/form.php';
         include __DIR__ . '/../views/layout/footer.php';
     }
 
@@ -57,7 +57,7 @@ class SlideshowController
         $slide = $id ? $this->model->findById($id) : null;
 
         include __DIR__ . '/../views/layout/header.php';
-        include __DIR__ . '/../views/slides/form.php';
+        include __DIR__ . '/../views/slideshow/form.php';
         include __DIR__ . '/../views/layout/footer.php';
     }
 
