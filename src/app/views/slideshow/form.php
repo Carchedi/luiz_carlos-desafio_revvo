@@ -4,20 +4,16 @@ $isEdit = isset($slide) && $slide;
 
 <h2><?= $isEdit ? 'Editar Slide' : 'Novo Slide' ?></h2>
 
-<form method="post" action="/slides/store">
+<form method="post" action="/slides/store" enctype="multipart/form-data">
 
     <?php if ($isEdit): ?>
         <input type="hidden" name="id" value="<?= $slide['id'] ?>">
+        <input type="hidden" name="imagem_atual" value="<?= $slide['imagem'] ?>">
     <?php endif; ?>
 
-    <div>
-        <label>Imagem (URL ou caminho)</label><br>
-        <input
-            type="text"
-            name="imagem"
-            required
-            value="<?= $isEdit ? htmlspecialchars($slide['imagem']) : '' ?>"
-        >
+     <div>
+        <label>Imagem</label><br>
+        <input type="file" name="imagem" <?= $isEdit ? '' : 'required' ?>>
     </div>
 
     <div>

@@ -37,13 +37,27 @@ class SlideshowController
         $titulo = filter_input(INPUT_POST, 'titulo');
         $descricao = filter_input(INPUT_POST, 'descricao');
         $linkBotao = filter_input(INPUT_POST, 'link_botao');
+        $imagemAtual = filter_input(INPUT_POST, 'imagem_atual');
+        $imagemPath = $imagemAtual;
 
-        if ($imagem) {
-            if ($id) {
-                $this->model->update($id, $imagem, $titulo, $descricao, $linkBotao);
-            } else {
-                $this->model->create($imagem, $titulo, $descricao, $linkBotao);
-            }
+        
+        if (!empty($_FILES['imagem']['name'])) {
+            $uploadDir = __DIR__ . '/../../public/uploads/';
+            $ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+            $filename = uniqid('slide_') . '.' . $ext;
+
+            move_uploaded_file(
+                $_FILES['imagem']['tmp_name'],
+                $uploadDir . $filename
+            );
+
+            $imagemPath = '/uploads/' . $filename;
+        }
+
+        if ($id) {
+            $this->model->update($id, $imagemPath, $titulo, $descricao, $linkBotao);
+        } else {
+            $this->model->create($imagemPath, $titulo, $descricao, $linkBotao);
         }
 
         header('Location: /slides');

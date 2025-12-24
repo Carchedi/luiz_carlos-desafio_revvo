@@ -20,7 +20,11 @@
         <tbody>
         <?php foreach ($slides as $slide): ?>
             <tr> 
-                <td><?= htmlspecialchars($slide['imagem']) ?></td>
+                <td>
+                    <?php if ($slide['imagem']): ?>
+                        <img src="<?= $slide['imagem'] ?>" width="120">
+                    <?php endif; ?>
+                </td>
                 <td><?= htmlspecialchars($slide['titulo'] ?? '') ?></td>
                 <td><?= htmlspecialchars($slide['descricao'] ?? '') ?></td>
                 <td><?= htmlspecialchars($slide['link_botao'] ?? '') ?></td>
