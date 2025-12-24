@@ -60,25 +60,68 @@ body {
   text-decoration: none;
 }
 
-
 .site-header {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
 }
 
 .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
 }
 
 .logo {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .main-nav a {
-    margin-left: 16px;
-    text-decoration: none;
-    color: #333;
+  margin-left: 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal {
+  background: #fff;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-image img {
+  width: 100%;
+  display: block;
+}
+
+.modal-content {
+  padding: 24px;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #fff;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
 }

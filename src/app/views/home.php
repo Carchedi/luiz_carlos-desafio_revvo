@@ -29,3 +29,23 @@
         </div>
     </div>
 </section>
+
+
+<div class="modal-overlay" id="welcomeModal">
+    <div class="modal">
+        <button class="modal-close" id="closeModal">&times;</button>
+
+        <div class="modal-image">
+            <img src="/assets/images/modal-banner.jpg" alt="">
+        </div>
+
+        <div class="modal-content">
+            <h2>Egestas Tortor Vulputate</h2>
+            <p>
+                Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            </p>
+
+            <a href="#" class="btn-primary">Inscreva-se</a>
+        </div>
+    </div>
+</div>
