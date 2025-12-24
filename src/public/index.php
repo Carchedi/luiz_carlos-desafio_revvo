@@ -17,12 +17,19 @@ switch ($uri) {
 
     // HOME
     case '/':
+        // Slides
+        require_once __DIR__ . '/../app/models/SlideShow.php';
         $slideModel = new Slideshow($pdo);
         $slides = $slideModel->findAll();
 
+        // Cursos
+        require_once __DIR__ . '/../app/models/Curso.php';
+        $cursoModel = new Curso($pdo);
+        $cursos = $cursoModel->findAll();
+
         include __DIR__ . '/../app/views/layout/header.php';
         include __DIR__ . '/../app/views/home.php';
-        include __DIR__ . '/../app/views/layout/footer.php';
+        include __DIR__ . '/../app/views/layout/footer.php'; 
         break;
 
     // CURSOS

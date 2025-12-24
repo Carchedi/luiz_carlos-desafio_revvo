@@ -29,22 +29,28 @@
 
 <!-- MEUS CURSOS -->
 <section class="courses">
-    <div class="container">
-        <h3>Meus Cursos</h3>
+    <h2>Cursos</h2>
 
-        <div class="course-grid">
+    <div class="cursos-grid">
+        <?php if (!empty($cursos)): ?>
+            <?php foreach ($cursos as $curso): ?>
+                <div class="curso-card">
+                    <h3><?= htmlspecialchars($curso['titulo']) ?></h3>
 
-            <!-- CARD -->
-            <article class="course-card">
-                <img src="/uploads/exemplo.jpg" alt="">
-                <div class="course-body">
-                    <h4>Pellentesque malesuada</h4>
-                    <p>Curabitur blandit tempus porttitor.</p>
-                    <a href="#" class="btn-primary">Ver curso</a>
+                    <?php if (!empty($curso['descricao'])): ?>
+                        <p><?= htmlspecialchars($curso['descricao']) ?></p>
+                    <?php endif; ?>
+
+                    <?php if (!empty($curso['link'])): ?>
+                        <a href="<?= htmlspecialchars($curso['link']) ?>" class="btn-outline">
+                            Saiba mais
+                        </a>
+                    <?php endif; ?>
                 </div>
-            </article> 
- 
-        </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Nenhum curso cadastrado.</p>
+        <?php endif; ?>
     </div>
 </section>
 
