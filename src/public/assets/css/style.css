@@ -125,3 +125,34 @@ body {
   cursor: pointer;
   border-radius: 50%;
 }
+
+.hero {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+}
+
+.hero-slider,
+.hero-slide {
+  height: 100%;
+}
+
+.hero-slide {
+  display: none;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide.active {
+  display: block;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  max-width: 500px;
+  color: #fff;
+}

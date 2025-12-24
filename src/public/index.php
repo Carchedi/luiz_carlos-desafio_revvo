@@ -1,26 +1,31 @@
 <?php
 
 require_once __DIR__ . '/../app/config/database.php';
- 
+
 // Controllers
 require_once __DIR__ . '/../app/controllers/CursoController.php';
 require_once __DIR__ . '/../app/controllers/SlideShowController.php';
 
- 
+// Models
+require_once __DIR__ . '/../app/models/SlideShow.php';
+
 // Captura a rota atual
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = rtrim($uri, '/') ?: '/';
 
 switch ($uri) {
 
-    //HOME
+    // HOME
     case '/':
+        $slideModel = new Slideshow($pdo);
+        $slides = $slideModel->findAll();
+
         include __DIR__ . '/../app/views/layout/header.php';
         include __DIR__ . '/../app/views/home.php';
         include __DIR__ . '/../app/views/layout/footer.php';
         break;
 
-   // CURSOS
+    // CURSOS
     case '/cursos':
         (new CursoController($pdo))->index();
         break;

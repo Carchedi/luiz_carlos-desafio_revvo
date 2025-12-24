@@ -1,12 +1,30 @@
 <!-- HERO / SLIDESHOW -->
 <section class="hero">
-    <div class="hero-slide">
-        <div class="hero-content">
-            <h2>Lorem Ipsum</h2>
-            <p>Aenean lacinia bibendum nulla sed consectetur.</p>
-            <a href="#" class="btn-outline">Ver curso</a>
+    <?php if (!empty($slides)): ?>
+        <div class="hero-slider">
+            <?php foreach ($slides as $index => $slide): ?>
+                <div class="hero-slide <?= $index === 0 ? 'active' : '' ?>"
+                     style="background-image: url('<?= $slide['imagem'] ?>')">
+
+                    <div class="hero-content">
+                        <?php if (!empty($slide['titulo'])): ?>
+                            <h2><?= htmlspecialchars($slide['titulo']) ?></h2>
+                        <?php endif; ?>
+
+                        <?php if (!empty($slide['descricao'])): ?>
+                            <p><?= htmlspecialchars($slide['descricao']) ?></p>
+                        <?php endif; ?>
+
+                        <?php if (!empty($slide['link_botao'])): ?>
+                            <a href="<?= $slide['link_botao'] ?>" class="btn-outline">
+                                Ver curso
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
-    </div>
+    <?php endif; ?>
 </section>
 
 <!-- MEUS CURSOS -->
