@@ -17,19 +17,25 @@ switch ($uri) {
 
    // CURSOS
     case '/cursos':
-        echo '<h1>Listagem de Cursos</h1>';
+        (new CursoController($pdo))->index();
         break;
 
     case '/cursos/create':
-        echo '<h1>Criar Curso</h1>';
+        (new CursoController($pdo))->create();
+        break;
+
+    case '/cursos/store':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            (new CursoController($pdo))->store();
+        }
         break;
 
     case '/cursos/edit':
-        echo '<h1>Editar Curso</h1>';
+        (new CursoController($pdo))->edit();
         break;
 
     case '/cursos/delete':
-        echo '<h1>Excluir Curso</h1>';
+        (new CursoController($pdo))->delete();
         break;
 
     // SLIDES
