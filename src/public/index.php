@@ -1,6 +1,9 @@
 <?php
 
-require_once __DIR__ . '/../app/config/database.php'; 
+require_once __DIR__ . '/../app/config/database.php';
+
+// Controllers
+require_once __DIR__ . '/../app/controllers/CursoController.php';
  
 // Captura a rota atual
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

@@ -32,11 +32,16 @@ class CursoController
     // POST /cursos/store
     public function store(): void
     {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
         $titulo = filter_input(INPUT_POST, 'titulo');
         $descricao = filter_input(INPUT_POST, 'descricao');
 
         if ($titulo && $descricao) {
-            $this->model->create($titulo, $descricao);
+             if ($id) {
+                $this->model->update($id, $titulo, $descricao);
+            } else {
+                $this->model->create($titulo, $descricao);
+            }
         }
 
         header('Location: /cursos');
