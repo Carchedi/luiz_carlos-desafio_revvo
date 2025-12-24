@@ -9,13 +9,16 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-<header>
-    <h1>Desafio Revvo</h1>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/cursos">Cursos</a>
-        <a href="/slides">Slides</a>
-    </nav>
+<header class="site-header">
+    <div class="container header-content">
+        <h1 class="logo">LEO</h1>
+
+        <nav class="main-nav">
+            <a href="/">Home</a>
+            <a href="/cursos">Cursos</a>
+            <a href="/slides">Slides</a>
+        </nav>
+    </div>
 </header>
 
 <main>
