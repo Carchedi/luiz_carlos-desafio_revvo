@@ -48,7 +48,7 @@ class CursoController
         exit;
     }
 
-    // GET /cursos/edit?id=1
+    // GET /cursos/edit?id=_
     public function edit(): void
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
@@ -59,7 +59,7 @@ class CursoController
         include __DIR__ . '/../views/layout/footer.php';
     }
 
-    // GET /cursos/delete?id=1
+    // GET /cursos/delete?id=_
     public function delete(): void
     {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);

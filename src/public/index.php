@@ -4,6 +4,8 @@ require_once __DIR__ . '/../app/config/database.php';
  
 // Controllers
 require_once __DIR__ . '/../app/controllers/CursoController.php';
+require_once __DIR__ . '/../app/controllers/SlideShowController.php';
+
  
 // Captura a rota atual
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -43,19 +45,25 @@ switch ($uri) {
 
     // SLIDES
     case '/slides':
-        echo '<h1>Listagem de Slides</h1>';
+        (new SlideshowController($pdo))->index();
         break;
 
     case '/slides/create':
-        echo '<h1>Criar Slide</h1>';
+        (new SlideshowController($pdo))->create();
+        break;
+
+    case '/slides/store':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            (new SlideshowController($pdo))->store();
+        }
         break;
 
     case '/slides/edit':
-        echo '<h1>Editar Slide</h1>';
+        (new SlideshowController($pdo))->edit();
         break;
 
     case '/slides/delete':
-        echo '<h1>Excluir Slide</h1>';
+        (new SlideshowController($pdo))->delete();
         break;
 
     // 404
