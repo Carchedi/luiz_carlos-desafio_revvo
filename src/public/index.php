@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../app/config/database.php';
-
+ 
 // Controllers
 require_once __DIR__ . '/../app/controllers/CursoController.php';
  
