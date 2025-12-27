@@ -9,7 +9,7 @@ O objetivo do projeto é demonstrar habilidades técnicas em **back-end e front-
 ## 👨‍💻 Desenvolvedor
 
 **Nome:** Luiz Carlos Carchedi  
-**GitHub:** https://github.com/carchedi  
+**GitHub:** https://github.com/carchedi
 
 ---
 
@@ -39,6 +39,7 @@ A aplicação consiste em um sistema simples de gerenciamento de conteúdo, cont
 ## ⚙️ Funcionalidades Implementadas
 
 ### Back-end
+
 - CRUD de Cursos
 - CRUD de Slideshow
 - Upload de imagens
@@ -46,6 +47,7 @@ A aplicação consiste em um sistema simples de gerenciamento de conteúdo, cont
 - Sistema de rotas manual utilizando Front Controller
 
 ### Front-end
+
 - Página inicial com slideshow dinâmico
 - Modal exibido apenas no primeiro acesso (controle via `localStorage`)
 - Layout responsivo baseado no layout oficial do desafio
@@ -58,6 +60,7 @@ A aplicação consiste em um sistema simples de gerenciamento de conteúdo, cont
 O projeto utiliza **PostgreSQL**.
 
 ### Tabelas principais
+
 - `cursos`
 - `slideshows`
 
@@ -72,24 +75,29 @@ src/storage/uploads
 ## 🚀 Como Executar o Projeto
 
 ### 1️⃣ Clonar o repositório
+
 ```bash
 git clone https://github.com/seu_usuario/desafio_revvo.git
 cd desafio_revvo
 ```
 
 ### 2️⃣ Configurar o banco de dados
+
 - Criar um banco no PostgreSQL
 - Ajustar as credenciais em:
+
 ```
 src/app/config/database.php
 ```
 
 ### 3️⃣ Subir o servidor PHP
+
 ```bash
 php -S localhost:8000 -t src/public
 ```
 
 ### 4️⃣ Acessar no navegador
+
 ```
 http://localhost:8000
 ```
@@ -103,16 +111,14 @@ desafio_revvo/
 ├── src/
 │   ├── public/                 # Ponto de entrada da aplicação
 │   │   ├── index.php           # Front Controller
-│   │   └── assets/             # CSS, JS e imagens
+│   │   ├── assets/             # CSS, JS e imagens
+│   |   └── uploads/            # Upload de imagens
 │   │
 │   ├── app/
 │   │   ├── config/             # Configurações
 │   │   ├── controllers/        # Controllers
 │   │   ├── models/             # Models
 │   │   └── views/              # Views
-│   │
-│   └── storage/
-│       └── uploads/            # Upload de imagens
 │
 ├── .gitignore
 ├── README.md
@@ -142,4 +148,4 @@ Após a conclusão do desafio, o link do repositório deve ser enviado para:
 
 ✔ Funcional  
 ✔ Requisitos principais implementados  
-✔ Pronto para avaliação  
+✔ Pronto para avaliação
