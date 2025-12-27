@@ -12,7 +12,7 @@ class Curso
     public function findAll(): array
     {
         $stmt = $this->pdo->query(
-            'SELECT id, titulo, descricao FROM cursos ORDER BY id DESC'
+            'SELECT id, imagem, titulo, descricao FROM cursos ORDER BY id DESC'
         );
 
         return $stmt->fetchAll();
@@ -21,33 +21,35 @@ class Curso
     public function findById(int $id): array|false
     {
         $stmt = $this->pdo->prepare(
-            'SELECT id, titulo, descricao FROM cursos WHERE id = :id'
+            'SELECT id, imagem, titulo, descricao FROM cursos WHERE id = :id'
         );
         $stmt->execute(['id' => $id]);
 
         return $stmt->fetch();
     }
 
-    public function create(string $titulo, string $descricao): bool
+    public function create(?string $imagem, string $titulo, string $descricao): bool
     {
         $stmt = $this->pdo->prepare(
-            'INSERT INTO cursos (titulo, descricao) VALUES (:titulo, :descricao)'
+            'INSERT INTO cursos (imagem, titulo, descricao) VALUES (:imagem, :titulo, :descricao)'
         );
 
         return $stmt->execute([
+            'imagem' => $imagem,
             'titulo' => $titulo,
             'descricao' => $descricao
         ]);
     }
 
-    public function update(int $id, string $titulo, string $descricao): bool
+    public function update(int $id, ?string $imagem, string $titulo, string $descricao): bool
     {
         $stmt = $this->pdo->prepare(
-            'UPDATE cursos SET titulo = :titulo, descricao = :descricao WHERE id = :id'
+            'UPDATE cursos SET imagem = :imagem, titulo = :titulo, descricao = :descricao WHERE id = :id'
         );
 
         return $stmt->execute([
             'id' => $id,
+            'imagem' => $imagem,
             'titulo' => $titulo,
             'descricao' => $descricao
         ]);

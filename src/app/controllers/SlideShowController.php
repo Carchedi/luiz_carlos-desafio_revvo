@@ -33,16 +33,18 @@ class SlideshowController
     public function store(): void
     {
         $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-        $imagem = filter_input(INPUT_POST, 'imagem');
         $titulo = filter_input(INPUT_POST, 'titulo');
         $descricao = filter_input(INPUT_POST, 'descricao');
         $linkBotao = filter_input(INPUT_POST, 'link_botao');
         $imagemAtual = filter_input(INPUT_POST, 'imagem_atual');
-        $imagemPath = $imagemAtual;
 
-        
+        // Por padrão mantém a imagem atual (edição)
+        // Garante que apenas o nome do arquivo seja salvo (remove /uploads/ se vier do input)
+        $imagem = $imagemAtual ? basename($imagemAtual) : null;
+
         if (!empty($_FILES['imagem']['name'])) {
             $uploadDir = __DIR__ . '/../../public/uploads/';
+
             $ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
             $filename = uniqid('slide_') . '.' . $ext;
 
@@ -51,13 +53,13 @@ class SlideshowController
                 $uploadDir . $filename
             );
 
-            $imagemPath = '/uploads/' . $filename;
+            $imagem = $filename;
         }
 
         if ($id) {
-            $this->model->update($id, $imagemPath, $titulo, $descricao, $linkBotao);
+            $this->model->update($id, $imagem, $titulo, $descricao, $linkBotao);
         } else {
-            $this->model->create($imagemPath, $titulo, $descricao, $linkBotao);
+            $this->model->create($imagem, $titulo, $descricao, $linkBotao);
         }
 
         header('Location: /slides');

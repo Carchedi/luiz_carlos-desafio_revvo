@@ -35,12 +35,27 @@ class CursoController
         $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
         $titulo = filter_input(INPUT_POST, 'titulo');
         $descricao = filter_input(INPUT_POST, 'descricao');
+        $imagemAtual = filter_input(INPUT_POST, 'imagem_atual');
+
+        $imagem = $imagemAtual ? basename($imagemAtual) : null;
+
+        if (!empty($_FILES['imagem']['name'])) {
+            $uploadDir = __DIR__ . '/../../public/uploads/';
+            $ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+            $filename = uniqid('curso_') . '.' . $ext;
+
+            move_uploaded_file(
+                $_FILES['imagem']['tmp_name'],
+                $uploadDir . $filename
+            );
+            $imagem = $filename;
+        }
 
         if ($titulo && $descricao) {
              if ($id) {
-                $this->model->update($id, $titulo, $descricao);
+                $this->model->update($id, $imagem, $titulo, $descricao);
             } else {
-                $this->model->create($titulo, $descricao);
+                $this->model->create($imagem, $titulo, $descricao);
             }
         }
 

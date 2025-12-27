@@ -22,7 +22,7 @@
             <tr> 
                 <td>
                     <?php if ($slide['imagem']): ?>
-                        <img src="<?= $slide['imagem'] ?>" width="120">
+                        <img src="/uploads/<?= $slide['imagem'] ?>" width="120">
                     <?php endif; ?>
                 </td>
                 <td><?= htmlspecialchars($slide['titulo'] ?? '') ?></td>
