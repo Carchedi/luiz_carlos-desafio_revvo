@@ -1,17 +1,22 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("welcomeModal");
-  const closeBtn = document.getElementById("closeModal");
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("first-access-modal");
+  const closeBtn = modal?.querySelector(".modal-close");
+  const confirmBtn = modal?.querySelector(".modal-confirm");
 
   if (!modal) return;
 
-  const alreadyVisited = localStorage.getItem("revvo_modal_seen");
+  // Verifica primeiro acesso
+  const alreadyVisited = localStorage.getItem("revvo_first_access");
 
   if (!alreadyVisited) {
-    modal.classList.add("active");
-    localStorage.setItem("revvo_modal_seen", "true");
+    modal.classList.remove("hidden");
   }
 
-  closeBtn.addEventListener("click", function () {
-    modal.classList.remove("active");
-  });
+  function closeModal() {
+    modal.classList.add("hidden");
+    localStorage.setItem("revvo_first_access", "true");
+  }
+
+  closeBtn?.addEventListener("click", closeModal);
+  confirmBtn?.addEventListener("click", closeModal);
 });

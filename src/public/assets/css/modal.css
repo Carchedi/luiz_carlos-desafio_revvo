@@ -1,0 +1,116 @@
+/* Overlay escuro */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+/* Container do modal */
+.modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: modalFade 0.3s ease-out;
+}
+
+/* Animação */
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botão fechar */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: #ff6b6b;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagem topo */
+.modal-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Corpo */
+.modal-body {
+  padding: 35px 40px 40px;
+  text-align: center;
+}
+
+.modal-body h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.modal-body p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  max-width: 520px;
+  margin: 0 auto 30px;
+}
+
+/* Botão principal */
+.modal-confirm {
+  background: #29a3da;
+  color: #fff;
+  border: none;
+  padding: 12px 45px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal-confirm:hover {
+  background: #1f8fc2;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .modal-container {
+    margin: 0 15px;
+  }
+
+  .modal-body {
+    padding: 30px 20px 35px;
+  }
+
+  .modal-body h2 {
+    font-size: 20px;
+  }
+}

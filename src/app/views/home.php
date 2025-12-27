@@ -78,5 +78,7 @@
         </div>
 
     </section>
+    <?php include __DIR__ . '/modal.php'; ?>
+
 
 </main>
